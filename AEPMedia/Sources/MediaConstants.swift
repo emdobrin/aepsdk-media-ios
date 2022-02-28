@@ -22,6 +22,42 @@ internal extension MediaConstants {
     static let VERSION_PREFIX_IOS = "ios-media-"
     static let VERSION_PREFIX_TVOS = "tvos-media-"
 
+    enum Edge {
+        enum Path {
+            static let VIDEO_ANALYTICS = "/va"
+            static let SESSION_START = "/sessionStart"
+            static let SESSION_COMPLETE = "/sessionComplete"
+            static let CHAPTER_START = "/chapterStart"
+            static let CHAPTER_COMPLETE = "/chapterComplete"
+            static let AD_START = "/adStart"
+            static let AD_COMPLETE = "/adComplete"
+        }
+        
+        enum XDMEventType {
+            static let SESSION_START = "media.sessionStart"
+            static let SESSION_COMPLETE = "media.sessionComplete"
+            static let CHAPTER_START = "media.chapterStart"
+            static let CHAPTER_COMPLETE = "media.chapterComplete"
+            static let AD_START = "media.adStart"
+            static let AD_COMPLETE = "media.adComplete"
+        }
+        
+        enum MediaEventType {
+            static let EVENT_TYPE = "eventType"
+        }
+        
+        enum EventSource {
+            static let SESSION_INFO_RESPONSE = "media:session"
+        }
+        
+        enum EventData {
+            static let SESSION_ID = "sessionId"
+            static let PAYLOAD = "payload"
+            static let REQUEST_EVENT_ID = "requestEventId"
+            static let EDGE_PATH = "edge.requestpath"
+            static let QUERY_PARAMS = "edge.requestparams"
+        }
+    }
     enum Networking {
         static let HTTP_TIMEOUT_SECONDS: TimeInterval = 5
         static let HTTP_SUCCESS_RANGE = 200..<300

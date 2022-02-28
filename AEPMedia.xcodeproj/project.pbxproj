@@ -65,6 +65,11 @@
 		AC9E4693260D62BB0087FFF8 /* MediaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E468F260D62BB0087FFF8 /* MediaService.swift */; };
 		AC9E4694260D62BB0087FFF8 /* MediaOfflineSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E4690260D62BB0087FFF8 /* MediaOfflineSession.swift */; };
 		AC9E4695260D62BB0087FFF8 /* MediaRealTimeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9E4691260D62BB0087FFF8 /* MediaRealTimeSession.swift */; };
+		D401B12027BDEF4C0002CD8F /* XDMMediaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D401B11F27BDEF4C0002CD8F /* XDMMediaInfo.swift */; };
+		D401B12427BDF8E20002CD8F /* EdgeMediaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D401B12327BDF8E20002CD8F /* EdgeMediaHelper.swift */; };
+		D4C77D8527B5A5C4004E2330 /* EdgeMediaRealTimeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C77D8427B5A5C4004E2330 /* EdgeMediaRealTimeSession.swift */; };
+		D4C77D8727B5F57F004E2330 /* EdgeMediaReportHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C77D8627B5F57F004E2330 /* EdgeMediaReportHelper.swift */; };
+		D4C77D8B27BB0FFF004E2330 /* Event+EdgeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C77D8A27BB0FFF004E2330 /* Event+EdgeMedia.swift */; };
 		D62E1E93261D290D00635977 /* Media+PublicAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62E1E88261D290D00635977 /* Media+PublicAPITests.swift */; };
 		D62E1E9A261D290D00635977 /* MediaObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62E1E8F261D290D00635977 /* MediaObjectTests.swift */; };
 		D62E1EA9261D298900635977 /* MediaExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62E1E9E261D291B00635977 /* MediaExtensionTests.swift */; };
@@ -216,6 +221,11 @@
 		AC9E4690260D62BB0087FFF8 /* MediaOfflineSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaOfflineSession.swift; sourceTree = "<group>"; };
 		AC9E4691260D62BB0087FFF8 /* MediaRealTimeSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaRealTimeSession.swift; sourceTree = "<group>"; };
 		BD051424EC476943396CB548 /* Pods-AEPMedia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AEPMedia.debug.xcconfig"; path = "Target Support Files/Pods-AEPMedia/Pods-AEPMedia.debug.xcconfig"; sourceTree = "<group>"; };
+		D401B11F27BDEF4C0002CD8F /* XDMMediaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XDMMediaInfo.swift; path = AEPMedia/Sources/MediaCollection/XDMMediaInfo.swift; sourceTree = SOURCE_ROOT; };
+		D401B12327BDF8E20002CD8F /* EdgeMediaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EdgeMediaHelper.swift; path = AEPMedia/Sources/MediaCollection/EdgeMediaHelper.swift; sourceTree = SOURCE_ROOT; };
+		D4C77D8427B5A5C4004E2330 /* EdgeMediaRealTimeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EdgeMediaRealTimeSession.swift; path = AEPMedia/Sources/MediaCollection/EdgeMediaRealTimeSession.swift; sourceTree = SOURCE_ROOT; };
+		D4C77D8627B5F57F004E2330 /* EdgeMediaReportHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EdgeMediaReportHelper.swift; path = AEPMedia/Sources/MediaCollection/EdgeMediaReportHelper.swift; sourceTree = SOURCE_ROOT; };
+		D4C77D8A27BB0FFF004E2330 /* Event+EdgeMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Event+EdgeMedia.swift"; path = "AEPMedia/Sources/Event+EdgeMedia.swift"; sourceTree = SOURCE_ROOT; };
 		D62E1E85261D290D00635977 /* MediaPublicTrackerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPublicTrackerTests.swift; sourceTree = "<group>"; };
 		D62E1E86261D290D00635977 /* MediaContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaContextTests.swift; sourceTree = "<group>"; };
 		D62E1E87261D290D00635977 /* MediaHitsDatabaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaHitsDatabaseTests.swift; sourceTree = "<group>"; };
@@ -363,6 +373,10 @@
 				3D663A4425E71E4C00E96250 /* MediaCollectionReportHelper.swift */,
 				D662CF2326006FA30018AEFC /* MediaCollectionHitGenerator.swift */,
 				D6424A7F25DDB3BE00ED94F9 /* MediaCollectionHelper.swift */,
+				D4C77D8427B5A5C4004E2330 /* EdgeMediaRealTimeSession.swift */,
+				D4C77D8627B5F57F004E2330 /* EdgeMediaReportHelper.swift */,
+				D401B11F27BDEF4C0002CD8F /* XDMMediaInfo.swift */,
+				D401B12327BDF8E20002CD8F /* EdgeMediaHelper.swift */,
 			);
 			path = MediaCollection;
 			sourceTree = "<group>";
@@ -492,6 +506,7 @@
 				AC36EC3525C9F11E00A37345 /* MediaTracker.swift */,
 				2E1691A525E468D30010D14A /* MediaType.swift */,
 				D6DAB46A25F9822800260DA8 /* SQLiteWrapper.swift */,
+				D4C77D8A27BB0FFF004E2330 /* Event+EdgeMedia.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -879,6 +894,7 @@
 				AC9E4689260D62820087FFF8 /* Event+Media.swift in Sources */,
 				3D663A4925E9914900E96250 /* MediaDBService.swift in Sources */,
 				AC8C2B042628365300370794 /* MediaConstants+Public.swift in Sources */,
+				D4C77D8727B5F57F004E2330 /* EdgeMediaReportHelper.swift in Sources */,
 				3D663A4525E71E4C00E96250 /* MediaCollectionReportHelper.swift in Sources */,
 				D6424A8025DDB3BE00ED94F9 /* MediaCollectionHelper.swift in Sources */,
 				AC9E467F260D62530087FFF8 /* QoEInfo.swift in Sources */,
@@ -887,12 +903,14 @@
 				2E1691A625E468D30010D14A /* MediaType.swift in Sources */,
 				AC9E4692260D62BB0087FFF8 /* MediaSession.swift in Sources */,
 				AC9E4680260D62530087FFF8 /* ChapterInfo.swift in Sources */,
+				D4C77D8527B5A5C4004E2330 /* EdgeMediaRealTimeSession.swift in Sources */,
 				D6DAB46B25F9822800260DA8 /* SQLiteWrapper.swift in Sources */,
 				AC9E467E260D62530087FFF8 /* AdBreakInfo.swift in Sources */,
 				AC9E4695260D62BB0087FFF8 /* MediaRealTimeSession.swift in Sources */,
 				AC9E467B260D62530087FFF8 /* StateInfo.swift in Sources */,
 				3D2C836325E5CADC0064E0D4 /* MediaState.swift in Sources */,
 				D662CF2426006FA30018AEFC /* MediaCollectionHitGenerator.swift in Sources */,
+				D401B12427BDF8E20002CD8F /* EdgeMediaHelper.swift in Sources */,
 				2EF1DF2B25E865DE0008925D /* MediaEventTracker.swift in Sources */,
 				AC36EC4325C9F11E00A37345 /* MediaConstants.swift in Sources */,
 				AC36EC4025C9F11E00A37345 /* Media.swift in Sources */,
@@ -904,11 +922,13 @@
 				AC36EC3F25C9F11E00A37345 /* MediaTracker.swift in Sources */,
 				D6DAB46725F97E6200260DA8 /* MediaHitsDatabase.swift in Sources */,
 				2E20D4A625CA154C00B5CCB8 /* MediaRule.swift in Sources */,
+				D4C77D8B27BB0FFF004E2330 /* Event+EdgeMedia.swift in Sources */,
 				AC9E467C260D62530087FFF8 /* AdInfo.swift in Sources */,
 				AC36EC4225C9F11E00A37345 /* Media+PublicAPI.swift in Sources */,
 				3D9D531F25D5ED3E00F33EB7 /* MediaProcessor.swift in Sources */,
 				AC9E4694260D62BB0087FFF8 /* MediaOfflineSession.swift in Sources */,
 				D662CF1E26006F880018AEFC /* MediaContext.swift in Sources */,
+				D401B12027BDEF4C0002CD8F /* XDMMediaInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

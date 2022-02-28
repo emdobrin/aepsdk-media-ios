@@ -51,6 +51,7 @@ public class Media: NSObject, Extension {
         registerListener(type: MediaConstants.Media.EVENT_TYPE, source: MediaConstants.Media.EVENT_SOURCE_TRACK_MEDIA, listener: handleMediaTrack)
         registerListener(type: EventType.hub, source: EventSource.sharedState, listener: handleSharedStateUpdate)
         registerListener(type: EventType.genericIdentity, source: EventSource.requestReset, listener: handleResetIdentitiesEvent)
+        registerListener(type: EventType.edge, source: MediaConstants.Edge.EventSource.SESSION_INFO_RESPONSE, listener: handleMediaEdgeResponseHandle)
     }
 
     /// Invoked when the Media extension has been unregistered by the `EventHub`, currently a no-op.
@@ -121,6 +122,23 @@ public class Media: NSObject, Extension {
         }
 
         tracker.track(event: event)
+    }
+    
+    private func handleMediaEdgeResponseHandle(event: Event) {
+        // todo: implement me
+        // pass event data and request id for this event handle
+        guard let _ = event.data else {
+            return
+        }
+        let edgeSessionId = event.edgeSessionId
+        let requestEventId = event.requestEventId
+        guard let edgeSessionId = edgeSessionId else {
+            Log.debug(label: Self.LOG_TAG, "[\(Self.CLASS_NAME)<\(#function)>] - media:session event received without sessionid")
+            return
+        }
+        
+        mediaService.updateSessionInfo(requestEventId: requestEventId, backendSessionId: edgeSessionId)
+        
     }
 
     private func dispathSessionCreated(eventData: [String: Any]) {

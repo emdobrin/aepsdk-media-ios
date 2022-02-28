@@ -12,6 +12,7 @@
 
 import UIKit
 import AEPAssurance
+import AEPCore
 
 class ViewController: UIViewController {
     var adLabel: UILabel?
@@ -96,6 +97,17 @@ class ViewController: UIViewController {
         if let url = URL(string: assuranceUrl.text ?? "") {
             Assurance.startSession(url: url)
         }
+    }
+    
+    @IBAction func edgeResponseSessionId(_ sender: Any) {
+        let sessionId = UUID().uuidString
+        let event = Event(name: "Media response",
+                          type: EventType.edge,
+                          source: "media:session",
+                          data: ["payload": [["sessionId": sessionId ]],
+                                    "type": "media:session",
+                                    "requestEventId": "C21B3A27-B0C3-4E33-B021-400F862D85AC"] as [String: Any])
+        MobileCore.dispatch(event: event)
     }
 
     func reset() {

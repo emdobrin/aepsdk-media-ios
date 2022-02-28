@@ -88,6 +88,14 @@ struct MediaHit: Codable {
         ]
         try container.encode(AnyCodable.from(dictionary: playerTime), forKey: .playerTime)
     }
+    
+    func asDictionary() -> [String: Any]? {
+        guard let data = try? JSONEncoder().encode(self) else {
+            return nil
+        }
+        
+        return try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: Any] ?? nil
+    }
 
     private func readNumber(_ val: AnyCodable?) -> Double {
         guard let val = val else {

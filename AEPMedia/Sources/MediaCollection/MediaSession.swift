@@ -78,6 +78,12 @@ class MediaSession {
     func handleMediaStateUpdate() {
         Log.warning(label: Self.LOG_TAG, "[\(Self.CLASS_NAME)<\(#function)>] - This function should be handled by the implementing class.")
     }
+    
+    /// Overwrite this function for real time processing
+    /// Update with session id from server
+    func notifySessionUpdate(requestEventId: String, backendSessionId: String) {
+        // noop by default
+    }
 
     ///Includes the business logic for ending session. Implemented by more concrete classes of MediaSession: `MedialRealTimeSession` and `MediaOfflineSession`.
     func handleSessionEnd() {

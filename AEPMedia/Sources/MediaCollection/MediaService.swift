@@ -32,7 +32,7 @@ class MediaService: MediaProcessor {
     #else
         private var mediaSessions: [String: MediaSession] = [:]
     #endif
-
+    
     private var dispatchFn: (([String: Any]) -> Void)?
 
     init(mediaDBService: MediaDBService) {
@@ -72,12 +72,18 @@ class MediaService: MediaProcessor {
             if isDownloaded {
                 session = MediaOfflineSession(id: sessionId, state: mediaState, dispatchQueue: dispatchQueue, mediaDBService: mediaDBService, dispathFn: dispatchFn)
             } else {
-                session = MediaRealTimeSession(id: sessionId, state: mediaState, dispatchQueue: dispatchQueue, dispathFn: dispatchFn)
+                session = EdgeMediaRealTimeSession(id: sessionId, state: mediaState, dispatchQueue: dispatchQueue, dispathFn: dispatchFn)
             }
 
             mediaSessions[sessionId] = session
             Log.trace(label: Self.LOG_TAG, "[\(Self.CLASS_NAME)<\(#function)>] - Created a new session (\(sessionId))")
             return sessionId
+        }
+    }
+    
+    func updateSessionInfo(requestEventId: String, backendSessionId: String) {
+        dispatchQueue.async {
+            self.mediaSessions.forEach { sessionId, _ in self.mediaSessions[sessionId]?.notifySessionUpdate(requestEventId: requestEventId, backendSessionId: backendSessionId) }
         }
     }
 
@@ -145,6 +151,7 @@ class MediaService: MediaProcessor {
         mediaSessions[sessionId]?.handleMediaStateUpdate()
     }
 
+    // todo: update me - these dependencies are no longer needed
     func updateMediaState(event: Event, getSharedState: (String, Event, Bool) -> SharedStateResult?) {
         var sharedStates = [String: [String: Any]?]()
         for extensionName in dependencies {

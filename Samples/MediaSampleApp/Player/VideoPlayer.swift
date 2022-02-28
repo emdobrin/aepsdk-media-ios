@@ -218,6 +218,7 @@ class VideoPlayer: AVPlayer {
     func pausePlayback() {
         NSLog("Video paused")
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: PlayerEvent.PLAYER_EVENT_PAUSE), object: self)
+        _paused = true
     }
 
     func startVideo() {
